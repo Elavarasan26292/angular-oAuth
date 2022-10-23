@@ -1,0 +1,40 @@
+<div>Name:{{userinfo?.info?.name}}</div>
+<div>email:{{userinfo?.info?.email}}</div>
+
+
+<div><button *ngIf="isLoggedin()" (click)="printUserDetails()">LogUserDetails</button></div>
+
+<div><button *ngIf="isLoggedin()" (click)="signOut()">Signout</button></div>
+
+<div><button *ngIf="isLoggedin()" (click)="revokeAccess()">Signout and Revoke Access</button></div>
+
+<div><button *ngIf="isLoggedin()" (click)="getCalenderList()">FetchCalenderList</button></div>
+
+
+<br><br><br>
+
+
+<div *ngFor="let calData of calenders?.items">
+  <button *ngIf="calData?.accessRole==='owner'" (click)="getCalenderDetails(calData?.id)">{{calData?.summary}}</button>
+</div>
+
+
+
+<br><br><br>
+
+<table *ngIf="calenderEvents">
+    <tr>
+        <th>Summary</th>
+        <th>Status</th>
+        <th>Location</th>
+        <th>Starts From</th>
+        <th>Ends at</th>
+      </tr>
+      <tr *ngFor="let cal of calenderEvents?.items">
+        <td>{{cal.summary}}</td>
+        <td>{{cal.status}}</td>
+        <td>{{cal?.location ? cal?.location : null}}</td>
+        <td>{{cal.start.dateTime}}</td>
+        <td>{{cal.end.dateTime}}</td>
+      </tr>
+</table>

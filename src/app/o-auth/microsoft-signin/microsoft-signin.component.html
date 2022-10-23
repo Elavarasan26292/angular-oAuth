@@ -1,0 +1,11 @@
+<div>Name:{{userinfo?.info?.name}}</div>
+<div>email:{{userinfo?.info?.email}}</div>
+
+
+<div><button *ngIf="isLoggedin()" (click)="printUserDetails()">LogUserDetails</button></div>
+
+<div><button *ngIf="isLoggedin()" (click)="signOut()">Signout</button></div>
+
+<div><button *ngIf="isLoggedin()" (click)="revokeAccess()">Signout and Revoke Access</button></div>
+
+<div><button *ngIf="isLoggedin()" (click)="getCalenderList()">FetchCalenderList</button></div>
